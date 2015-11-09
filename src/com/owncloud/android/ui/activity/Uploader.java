@@ -394,6 +394,7 @@ public class Uploader extends FileActivity
         } else {
             actionBar.setTitle(current_dir);
         }
+
         boolean notRoot = (mParents.size() > 1);
 
         actionBar.setDisplayHomeAsUpEnabled(notRoot);
