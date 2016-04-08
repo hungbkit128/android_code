@@ -72,9 +72,3 @@ android {
         exclude 'META-INF/LICENSE.txt'
     }
 }
-
-
-
-
-
-
