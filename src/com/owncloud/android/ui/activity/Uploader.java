@@ -36,6 +36,7 @@ import android.content.IntentFilter;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources.NotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
@@ -461,7 +462,7 @@ public class Uploader extends FileActivity
     }
 
     private Vector<OCFile> sortFileList(Vector<OCFile> files) {
-        SharedPreferences sharedPreferences = PreferenceManager
+        SharedPreferences sharedPreferences = android.preference.PreferenceManager
                 .getDefaultSharedPreferences(this);
 
         // Read sorting order, default to sort by name ascending
