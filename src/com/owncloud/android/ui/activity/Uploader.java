@@ -462,9 +462,6 @@ public class Uploader extends FileActivity
     }
 
     private Vector<OCFile> sortFileList(Vector<OCFile> files) {
-        SharedPreferences sharedPreferences = android.preference.PreferenceManager
-                .getDefaultSharedPreferences(this);
-
         // Read sorting order, default to sort by name ascending
         FileStorageUtils.mSortOrder = PreferenceManager.getSortOrder(this);
         FileStorageUtils.mSortAscending = PreferenceManager.getSortAscending(this);
