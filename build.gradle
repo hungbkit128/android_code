@@ -41,7 +41,6 @@ dependencies {
 
     // UiAutomator Testing
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
-    androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
 
 }
 
