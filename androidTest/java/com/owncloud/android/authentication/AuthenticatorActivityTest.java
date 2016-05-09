@@ -21,12 +21,12 @@ package com.owncloud.android.authentication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.owncloud.android.BuildConfig;
 import com.owncloud.android.R;
 
 import org.junit.Rule;
@@ -69,6 +69,12 @@ public class AuthenticatorActivityTest {
 
     @Test
     public void check_login() {
+        Bundle arguments = InstrumentationRegistry.getArguments();
+
+        // Get values passed
+        String testUser = arguments.getString("TEST_USER");
+        String testPassword = arguments.getString("TEST_PASSWORD");
+        String testServerURL = arguments.getString("TEST_SERVER_URL");
 
         // Check that login button is disabled
         onView(withId(R.id.buttonOK))
@@ -76,20 +82,19 @@ public class AuthenticatorActivityTest {
 
         // Type server url
         onView(withId(R.id.hostUrlInput))
-                .perform(typeText(BuildConfig.TEST_SERVER_URL), closeSoftKeyboard());
+                .perform(typeText(testServerURL), closeSoftKeyboard());
         onView(withId(R.id.account_username)).perform(click());
 
         // Type user
         onView(withId(R.id.account_username))
-                .perform(typeText(BuildConfig.TEST_USER), closeSoftKeyboard());
+                .perform(typeText(testUser), closeSoftKeyboard());
 
         // Type user pass
         onView(withId(R.id.account_password))
-                .perform(typeText(BuildConfig.TEST_PASSWORD), closeSoftKeyboard());
+                .perform(typeText(testPassword), closeSoftKeyboard());
         onView(withId(R.id.buttonOK)).perform(click());
 
         // Check that login button is now enabled
         onView(withId(R.id.buttonOK)).check(matches(isEnabled()));
-
     }
 }
